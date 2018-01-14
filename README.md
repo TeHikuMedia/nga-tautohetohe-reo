@@ -10,25 +10,25 @@ by how many Māori words it contains. The corpus consists of all utterances that
 ### hansardindex.csv
 * url (text): source url
 * volume (integer): Hansard volume (may be missing for recent documents)
-* date (date): Date of start of text (sometime the text spans multiple days) (format `2008-09-10`)
+* date (date): Date of start of text (e.g., `2008-09-10`). Note that sometimes the text spans multiple days, if the break between the days could not be determined.
 * reo (integer): number of words that are likely to be Māori
-* ambiguous (integer): number of words that could be either English or Māori (e.g, `a`, `he`, `to`)
+* ambiguous (integer): number of words in that could be either English or Māori (e.g, `a`, `he`, `to`)
 * other (integer): number of words that are likely to not be Māori
-* percent (number): percentage of words that are `reo`
-* retrieved (date):  date retrieved (format e.g. 2018-01-22)
+* percent (number): percentage of total words that are classified as `reo`
+* retrieved (date):  date retrieved (e.g., `2018-01-22`)
 * format (text): text string describing the format of the source document (e.g., 'html', 'pdf', 'ocr')
 * incomplete (text): a reason if the document is incomplete (e.g., `Awaiting authorised reo`), empty otherwise
 
 ### hansardcorpus.csv
 * url (text): source url
 * volume (integer): Hansard volume (may be missing for recent documents)
-* date (date): Date of start of text (sometime the text spans multiple days) (format `2008-09-10`)
+* date (date): Date of start of text (sometime the text spans multiple days) (e.g., `2008-09-10`)
 * utterance (integer): sequential number identifying each chunk of text within the document
 * speaker (text): name of the speaker
 * reo (integer): number of words in the utterance that are likely to be Māori
 * ambiguous (integer): number of words in the utterance that could be either English or Māori (e.g, `a`, `he`, `to`)
 * other (integer): number of words in the utterance that are likely to not be Māori
-* percent (number): percentage of words in the utterance that are `reo`
+* percent (number): percentage of total words in the utterance that are classified as `reo`
 * text (text): text extracted from the document, with line-breaks removed
 
 ## Scripts
