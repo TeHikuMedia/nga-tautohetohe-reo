@@ -22,7 +22,7 @@ by how many Māori words it contains. The corpus consists of all utterances that
 ### hansardcorpus.csv
 * url (text): source url
 * volume (integer): Hansard volume (may be missing for recent documents)
-* date (date): Date of start of text (sometime the text spans multiple days) (format 2008-09-10)
+* date (date): Date of start of text (sometime the text spans multiple days) (format `2008-09-10`)
 * utterance (integer): sequential number identifying each chunk of text within the document
 * speaker (text): name of the speaker
 * reo (integer): number of words in the utterance that are likely to be Māori
