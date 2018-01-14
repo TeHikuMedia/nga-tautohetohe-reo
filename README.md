@@ -12,7 +12,7 @@ by how many Māori words it contains. The corpus consists of all utterances that
 * volume (integer): Hansard volume (may be missing for recent documents)
 * date (date): Date of start of text (sometime the text spans multiple days) (format `2008-09-10`)
 * reo (integer): number of words that are likely to be Māori
-* ambiguous: number of words that could be either English or Māori (e.g, `a`, `he`, `to`)
+* ambiguous (integer): number of words that could be either English or Māori (e.g, `a`, `he`, `to`)
 * other (integer): number of words that are likely to not be Māori
 * percent (number): percentage of words that are `reo`
 * retrieved (date):  date retrieved (format e.g. 2018-01-22)
@@ -26,7 +26,7 @@ by how many Māori words it contains. The corpus consists of all utterances that
 * utterance (integer): sequential number identifying each chunk of text within the document
 * speaker (text): name of the speaker
 * reo (integer): number of words in the utterance that are likely to be Māori
-* ambiguous: number of words in the utterance that could be either English or Māori (e.g, `a`, `he`, `to`)
+* ambiguous (integer): number of words in the utterance that could be either English or Māori (e.g, `a`, `he`, `to`)
 * other (integer): number of words in the utterance that are likely to not be Māori
 * percent (number): percentage of words in the utterance that are `reo`
 * text (text): text extracted from the document, with line-breaks removed
