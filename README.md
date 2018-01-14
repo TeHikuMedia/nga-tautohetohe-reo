@@ -16,7 +16,7 @@ by how many Māori words it contains. The corpus consists of all utterances that
 * other (integer): number of words that are likely to not be Māori
 * percent (number): percentage of total words that are classified as `reo`
 * retrieved (date):  date retrieved (e.g., `2018-01-22`)
-* format (text): text string describing the format of the source document (e.g., 'html', 'pdf', 'ocr')
+* format (text): text string describing the format of the source document (e.g., `html`, `pdf`, `ocr`)
 * incomplete (text): a reason if the document is incomplete (e.g., `Awaiting authorised reo`), empty otherwise
 
 ### hansardcorpus.csv
