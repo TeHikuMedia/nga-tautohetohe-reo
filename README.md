@@ -35,5 +35,5 @@ by how many Māori words it contains. The corpus consists of all utterances that
 The script for scoring words as either English or Māori is at https://github.com/TeHikuMedia/nga-kupu, and the script that was used for extracting and processing the Hansard is at https://github.com/TeHikuMedia/nga-tautohetohe.
 
 ## Public domain
-The Hansard is in the public domain. You are free to re-use this content without a licence. If you carry out analysis of the text recorded in this repository, however, we would appreciate acknowledgement.
+The Hansard is in the public domain. You are free to re-use this content without restriction. If you carry out analysis of the text recorded in this repository, however, we would appreciate acknowledgement.
 
