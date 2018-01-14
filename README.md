@@ -10,7 +10,7 @@ by how many Māori words it contains. The corpus consists of all utterances that
 ### hansardindex.csv
 * url (text): source url
 * volume (integer): Hansard volume (may be missing for recent documents)
-* date (date): Date of start of text (sometime the text spans multiple days) (format `2008-09-10`)  - the date in the PDFs is currently in a `%A, %d %B %Y` format
+* date (date): Date of start of text (sometime the text spans multiple days) (format `2008-09-10`)
 * reo (integer): number of words that are likely to be Māori
 * ambiguous: number of words that could be either English or Māori (e.g, `a`, `he`, `to`)
 * other (integer): number of words that are likely to not be Māori
