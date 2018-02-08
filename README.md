@@ -5,6 +5,10 @@ This repository gives all the Te Reo that has been spoken in the New Zealand par
 two CSV files. The first is an index of the New Zealand Hansard, and the second is a corpus extracted from the Hansard. Speeches are broken into paragraphs or into blocks of text (referred to as an utterance), and each utterance is scored 
 by how many Māori words it contains. The corpus consists of all utterances that have more than 50% of the total words in Te Reo (not including ambiguous words, such as `he`, that could be either English or Māori).
 
+The graph below shows the useage of Te Reo in the New Zealand parliament over time. This counts all the words in Te Reo that were in speeches that contained more than 10 Māori words, as a percentage of all the words spoken in parliament during that year. 
+
+![Te reo usage in the New Zealand parliament](https://github.com/TeHikuMedia/nga-tautohetohe-reo/blob/master/plot/reo-speeches-by-year.png)
+
 ## The files
 
 ### hansardindex.csv
