@@ -1,0 +1,6 @@
+git+http://github.com/TeHikuMedia/reo-toolkit.git
+requests
+GitPython
+nltk
+pyyaml
+pandas
