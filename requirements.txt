@@ -4,3 +4,6 @@ GitPython
 nltk
 pyyaml
 pandas
+ipython
+click
+PyYAML

@@ -1,7 +1,7 @@
 DOCKER_REGISTRY := 473856431958.dkr.ecr.ap-southeast-2.amazonaws.com
 IMAGE_NAME := $(shell basename `git rev-parse --show-toplevel` | tr '[:upper:]' '[:lower:]')
 IMAGE := $(DOCKER_REGISTRY)/$(IMAGE_NAME)
-RUN ?= docker run $(DOCKER_ARGS) --rm -v $$(pwd):/work -w /work -u $(UID):$(GID) $(IMAGE)
+RUN ?= docker run $(DOCKER_ARGS) --rm -it -v $$(pwd):/work -w /work -u $(UID):$(GID) $(IMAGE)
 UID ?= $(shell id -u)
 GID ?= $(shell id -g)
 DOCKER_ARGS ?= 
@@ -9,6 +9,9 @@ GIT_TAG ?= $(shell git log --oneline | head -n1 | awk '{print $$1}')
 LOG_LEVEL ?= DEBUG
 
 .PHONY: corpus docker docker-push docker-pull enter enter-root4
+
+post: corpora.py
+	$(RUN) python3 $<
 
 corpus: corpus/hansard-reo-māori.txt
 
