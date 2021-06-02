@@ -1,0 +1,19 @@
+copyright:
+  license: Public domain
+  notes: Here are some notes
+  year: 2018
+description: Here is a description
+dialect: ""
+notes: Here are some notes
+primary_language: en-NZ
+secondary_language: mi
+original_file: hansardreomāori.csv
+cleaned_file: corpus/hansard-reo-māori.txt
+config:
+  name: This is a config object
+source:
+  author: J.K. Rowling
+  description: A very lengthy title
+  source_name: Harry Potter
+  source_type: M
+  source_url: harrypotter.com

@@ -1,1 +1,4 @@
-curl -X POST https://koreromaori.com/api/text/ -H 'Authorization: Token 5e6871e179a87b0143ae153024f90495918c4467' -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"copyright": {"license": "Public domain", "notes": null, "year": 2018}, "description": "Here is a description", "dialect": "", "notes": "Here are some notes", "primary_language": "en-NZ", "secondary_language": "mi"}'
+curl --location --request POST 'https://koreromaori.com/api/text/' \
+     --header 'Authorization: Token 5e6871e179a87b0143ae153024f90495918c4467' \
+     --form 'description="Here is a description"' \
+     --form 'original_file=@"hansardreomāori.csv"'
