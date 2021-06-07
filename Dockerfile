@@ -25,7 +25,7 @@ ENV LANG en_NZ.UTF-8
 ENV LANGUAGE en_NZ:en
 
 RUN apt update
-RUN apt install -y git
+RUN apt install -y git curl
 RUN apt install -y python3-dev python3-pip
 
 RUN pip3 install wheel
