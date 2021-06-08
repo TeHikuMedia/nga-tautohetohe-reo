@@ -7,7 +7,7 @@ dialect: ""
 notes: Here are some notes
 primary_language: en-NZ
 secondary_language: mi
-original_file: hansardreomāori.csv
+original_file: data/hansardreomāori.csv
 cleaned_file: corpus/hansard-reo-māori.txt
 config:
   name: This is a config object

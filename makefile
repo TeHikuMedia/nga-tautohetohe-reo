@@ -10,7 +10,7 @@ LOG_LEVEL ?= DEBUG
 
 .PHONY: corpus docker docker-push docker-pull enter enter-root4
 
-post: corpora.py metadata.yaml credentials.yaml
+post: scripts/corpora.py metadata.yaml credentials.yaml
 	$(RUN) python3 $< --metadata metadata.yaml --credentials credentials.yaml --log_level ${LOG_LEVEL}
 
 corpus: corpus/hansard-reo-māori.txt
