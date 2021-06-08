@@ -25,11 +25,11 @@ def post_text_to_corpora(data, token):
         --form 'secondary_language="{data["secondary_language"]}"' \
         --form 'copyright={json.dumps(data["copyright"])}' \
         --form 'config={json.dumps(data["config"])}' \
-        --form 'source.author={json.dumps(data["source.author"])}' \
-        --form 'source.description={json.dumps(data["source.description"])}' \
-        --form 'source.source_name={json.dumps(data["source.source_name"])}' \
-        --form 'source.source_type={json.dumps(data["source.source_type"])}' \
-        --form 'source.source_url={json.dumps(data["source.source_url"])}' \
+        --form 'source.author={json.dumps(data["source"]["author"])}' \
+        --form 'source.description={json.dumps(data["source"]["description"])}' \
+        --form 'source.source_name={json.dumps(data["source"]["source_name"])}' \
+        --form 'source.source_type={json.dumps(data["source"]["source_type"])}' \
+        --form 'source.source_url={json.dumps(data["source"]["source_url"])}' \
         --form 'original_file=@"{data["original_file"]}"' \
         --form 'cleaned_file=@"{data["cleaned_file"]}"'
     '''

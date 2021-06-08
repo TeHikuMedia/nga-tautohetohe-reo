@@ -11,8 +11,9 @@ original_file: hansardreomāori.csv
 cleaned_file: corpus/hansard-reo-māori.txt
 config:
   name: This is a config object
-source.author: J.K. Rowling
-source.description: A very lengthy title
-source.source_name: Harry Potter
-source.source_type: M
-source.source_url: http://www.harrypotter.com
+source:
+  author: J.K. Rowling
+  description: A very lengthy title
+  source_name: Harry Potter
+  source_type: M
+  source_url: http://www.harrypotter.com
