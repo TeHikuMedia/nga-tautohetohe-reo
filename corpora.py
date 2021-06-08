@@ -2,16 +2,14 @@ import re
 import json
 import yaml
 import shlex
+import click
+import logging
 import subprocess
 
-token = yaml.load(open('credentials.yaml', 'r'), Loader=yaml.FullLoader)['corpora']['token']
-data = yaml.load(open('metadata.yaml', 'r'), Loader=yaml.FullLoader)
-
-print(data)
 
 def post_text_to_corpora(data, token):
 
-    print("\n\nData:", data)
+    logging.info(f"Data: {data}")
 
     cmd = f'''curl \
         --location \
@@ -34,9 +32,26 @@ def post_text_to_corpora(data, token):
         --form 'cleaned_file=@"{data["cleaned_file"]}"'
     '''
 
-    print("\nRunning command:", re.sub('\s{2,}', ' ', cmd), '\n')
+    logging.info(' '.join(["\nRunning command:", re.sub('\s{2,}', ' ', cmd), '\n']))
     subprocess.run(shlex.split(cmd), check=True)
 
-post_text_to_corpora(data, token)
 
-print('\n\n' + '=' * 30)
+@click.command()
+@click.option("--metadata", default="corpus", help="Directory of corpus files")
+@click.option("--credentials", default="credentials.yaml", help="YAML file containing corpora API credentials")
+@click.option("--log_level", default="INFO", help="Log level (default: INFO)")
+def main(metadata, credentials, log_level):
+
+    # Set logger config
+    logging.basicConfig(
+        level=log_level, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    )
+
+    token = yaml.load(open(credentials, 'r'), Loader=yaml.FullLoader)['corpora']['token']
+    data = yaml.load(open(metadata, 'r'), Loader=yaml.FullLoader)
+
+    post_text_to_corpora(data, token)
+
+
+if __name__ == "__main__":
+    main()
