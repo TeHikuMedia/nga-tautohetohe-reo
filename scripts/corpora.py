@@ -7,15 +7,16 @@ import logging
 import subprocess
 
 
-def post_text_to_corpora(data, token):
+def post_text_to_corpora(data, auth):
 
     logging.info(f"Data: {data}")
 
     cmd = f'''curl \
         --location \
         --request POST \
-        'https://koreromaori.com/api/text/' \
-        --header 'Authorization: Token {token}' \
+        '{auth["api_url"]}' \
+        --header 'referrer: ' \
+        --header 'Authorization: Token {auth["token"]}' \
         --form 'description="{data["description"]}"' \
         --form 'dialect="{data["dialect"]}"' \
         --form 'notes="{data["notes"]}"' \
@@ -47,10 +48,10 @@ def main(metadata, credentials, log_level):
         level=log_level, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     )
 
-    token = yaml.load(open(credentials, 'r'), Loader=yaml.FullLoader)['corpora']['token']
+    auth = yaml.load(open(credentials, 'r'), Loader=yaml.FullLoader)["corpora"]
     data = yaml.load(open(metadata, 'r'), Loader=yaml.FullLoader)
 
-    post_text_to_corpora(data, token)
+    post_text_to_corpora(data, auth)
 
 
 if __name__ == "__main__":
