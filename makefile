@@ -1,5 +1,5 @@
 DOCKER_REGISTRY := 473856431958.dkr.ecr.ap-southeast-2.amazonaws.com
-IMAGE_NAME := $(shell basename `git rev-parse --show-toplevel` | tr '[:upper:]' '[:lower:]')
+IMAGE_NAME := nga-tautohetohe-reo
 IMAGE := $(DOCKER_REGISTRY)/$(IMAGE_NAME)
 HAS_DOCKER ?= $(shell which docker)
 RUN ?= $(if $(HAS_DOCKER), docker run $(DOCKER_ARGS) --rm -v $$(pwd):/work -w /work -u $(UID):$(GID) $(IMAGE))
@@ -14,9 +14,9 @@ LOG_LEVEL ?= DEBUG
 post: scripts/corpora.py metadata.yaml credentials.yaml
 	$(RUN) python3 $< --metadata metadata.yaml --credentials credentials.yaml --log_level ${LOG_LEVEL}
 
-corpus: corpus/hansard-reo-māori.txt
+corpus: corpus/hansardreomāori.txt
 
-corpus/hansard-reo-māori.txt: scripts/import_nga_tautohetohe.py hansardreomāori.csv
+corpus/hansardreomāori.txt: scripts/import_nga_tautohetohe.py data/hansardreomāori.csv
 	$(RUN) python3 $< --csv-file $(word 2,$^) --text-file $@ --log-level $(LOG_LEVEL)
 
 PROFILE ?= default
