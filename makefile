@@ -1,7 +1,8 @@
 DOCKER_REGISTRY := 473856431958.dkr.ecr.ap-southeast-2.amazonaws.com
 IMAGE_NAME := $(shell basename `git rev-parse --show-toplevel` | tr '[:upper:]' '[:lower:]')
 IMAGE := $(DOCKER_REGISTRY)/$(IMAGE_NAME)
-RUN ?= docker run $(DOCKER_ARGS) --rm -it -v $$(pwd):/work -w /work -u $(UID):$(GID) $(IMAGE)
+HAS_DOCKER ?= $(shell which docker)
+RUN ?= $(if $(HAS_DOCKER), docker run $(DOCKER_ARGS) --rm -v $$(pwd):/work -w /work -u $(UID):$(GID) $(IMAGE))
 UID ?= $(shell id -u)
 GID ?= $(shell id -g)
 DOCKER_ARGS ?= 
