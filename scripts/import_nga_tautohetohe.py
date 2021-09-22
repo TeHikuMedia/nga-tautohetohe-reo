@@ -33,23 +33,42 @@ def main():
   # download csv file
   csv_data = pd.read_csv(args.csv_file)
 
-  # parse csv and apply thresholds
-  plain_text = ''
-  for line in csv_data.text.values:
-    plain_text += line + '\n'
+  # split file by format
+  ocr = csv_data[csv_data['format'] == 'OCR']
+  not_ocr = csv_data[csv_data['format'] != 'OCR'] 
+
+  # parse csv and apply thresholds -- ocr data
+  ocr_plain_text = ''
+  for line in ocr.text.values:
+    ocr_plain_text += line + '\n'
+  
+  # parse csv and apply thresholds -- non-ocr data
+  other_plain_text = ''
+  for line in not_ocr.text.values:
+    other_plain_text += line + '\n'
 
   # output as plain text, with metadata
-  out_filename = args.text_file
+  out_filename = 'corpus/ocr-hansardreomāori.txt'
   textutils.write_kupu_tōkau(
     output_filename=out_filename,
     corpus_name=CORPUS_NAME,
-    plain_text=plain_text,
+    plain_text=ocr_plain_text,
     data_path='',
     source_url=urllib.parse.urljoin(
       HANSARD_GIT_BASE, "hansardreomāori.csv"),
     copyright_holder="None",
     notes="Te Reo Māori content from the NZ Hansard.")
 
+  out_filename = args.text_file
+  textutils.write_kupu_tōkau(
+    output_filename=out_filename,
+    corpus_name=CORPUS_NAME,
+    plain_text=other_plain_text,
+    data_path='',
+    source_url=urllib.parse.urljoin(
+      HANSARD_GIT_BASE, "hansardreomāori.csv"),
+    copyright_holder="None",
+    notes="Te Reo Māori content from the NZ Hansard.")
 
 if __name__ == "__main__":
   main()
